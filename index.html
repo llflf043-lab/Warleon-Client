@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warleon Client — Beta 1.0</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="profile-menu" id="profileMenu">
+  <button class="profile-trigger" id="profileTrigger"><span id="profileAvatar">👤</span><span id="profileName">@guest</span><span>⌄</span></button>
+  <div class="profile-dropdown" id="profileDropdown">
+    <div class="profile-card">
+      <div class="profile-avatar-large" id="profileAvatarLarge">👤</div>
+      <div><strong id="profileUsername">@guest</strong><span id="profileRole">Пользователь</span></div>
+    </div>
+    <button id="openProfile">Открыть профиль</button>
+    <button id="openAdminPanel" class="admin-only">👑 Админ-панель</button>
+    <button id="logoutButton">Выйти</button>
+  </div>
+</div>
+<div class="profile-modal" id="profileModal">
+  <div class="profile-modal-card">
+    <button class="profile-modal-close" id="profileModalClose">×</button>
+    <div class="profile-avatar-large" id="modalAvatar">👤</div>
+    <h2 id="modalUsername">@guest</h2>
+    <p id="modalRole">Пользователь</p>
+    <div class="profile-stat"><span>Статус</span><b id="modalStatus">Активен</b></div>
+    <div class="profile-stat"><span>Доступ</span><b id="modalAccess">Обычный пользователь</b></div>
+  </div>
+</div>
+
+<div class="background-grid"></div><div class="forest-glow"></div>
+
+<div class="auth-gate" id="authGate">
+  <div class="auth-card">
+    <div class="gate-logo">W<span>BETA</span></div>
+    <div class="eyebrow"><span class="pulse"></span> WARLEON CLIENT • BETA 1.0 • 1.21.4 FABRIC</div>
+    <h1>Добро пожаловать<br><em>в Warleon.</em></h1>
+    <p>Для доступа к сайту необходимо создать аккаунт или войти в уже существующий.</p>
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-auth="register">Регистрация</button>
+      <button class="auth-tab" data-auth="login">Войти</button>
+    </div>
+    <form id="gateForm">
+      <input id="username" type="text" placeholder="Имя пользователя" minlength="3" required>
+      <input id="email" type="email" placeholder="Email" required>
+      <input id="password" type="password" placeholder="Пароль (минимум 6 символов)" minlength="6" required>
+      <label class="check"><input type="checkbox" required> Я принимаю правила использования сайта</label>
+      <button class="primary-button" type="submit" id="authSubmit">Создать аккаунт <span>→</span></button>
+    </form>
+    <div class="form-message" id="gateMessage"></div>
+    <small class="security-note">🔒 Доступ к содержимому сайта открывается после авторизации.</small>
+  </div>
+</div>
+
+<div id="siteContent" class="site-locked">
+<header class="topbar">
+<a class="brand" href="#home"><span class="brand-mark">W</span><span>WARLEON <small>CLIENT • BETA</small></span></a>
+<nav class="nav">
+<a href="#home">Главная</a><a href="#features">Возможности</a><a href="#news">Новости</a><a href="#about">О клиенте</a><a href="#faq">FAQ</a>
+<button class="theme-button" id="themeButton">◐</button><span class="user-badge" id="userBadge"></span><button class="logout-button" id="logoutButton">Выйти</button>
+</nav>
+</header>
+
+<aside class="side-menu">
+<a class="side-link active" href="#home"><span>⌂</span><b>Главная</b></a>
+<a class="side-link" href="#features"><span>✦</span><b>Функции</b></a><a class="side-link" href="#news"><span>!</span><b>Новости</b></a>
+<a class="side-link" href="#about"><span>◈</span><b>Информация</b></a>
+<a class="side-link" href="#faq"><span>?</span><b>Помощь</b></a>
+</aside>
+
+<main id="home">
+<section class="hero">
+<div class="hero-copy">
+<div class="eyebrow"><span class="pulse"></span> WARLEON CLIENT • BETA 1.0 • 1.21.4 FABRIC</div>
+<h1>Твой стиль.<br><span>Твоя игра.</span></h1>
+<p class="hero-text">Современный клиент для Minecraft 1.21.4. Большое количество модулей, гибкая настройка и собственный стиль Warleon.</p>
+<div class="hero-actions"><button class="primary-button" id="downloadButton">Скачать Beta 1.0 <span>↗</span></button><a class="ghost-button" href="#features">Возможности <span>↓</span></a></div>
+<div class="stats"><div><strong>1.21.4</strong><span>Версия Minecraft</span></div><div><strong>FABRIC</strong><span>Загрузчик</span></div><div><strong>BETA 1.0</strong><span>Текущий релиз</span></div></div>
+</div>
+<div class="logo-stage"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="logo-ring"></div><div class="w-logo">W</div><div class="beta-badge">BETA 1.0</div><div class="logo-caption">WARLEON CLIENT</div><div class="logo-version">1.21.4 • FABRIC</div></div>
+</section>
+
+<section class="section news-section" id="news">
+<div class="section-heading"><span>01 / LATEST NEWS</span><h2>Что нового<br><em>в Warleon.</em></h2></div>
+<div class="news-grid">
+<article class="news-card"><button class="gallery-open" data-image="spoiler.png"><img src="spoiler.png" alt="Warleon spoiler"></button><div class="news-copy"><span class="news-tag">🕵️ SPOILER</span><h3>Новые возможности уже близко</h3><p>Первый взгляд на будущие обновления Warleon Client.</p></div></article>
+<article class="news-card"><button class="gallery-open" data-image="beta-1-1-soon.png"><img src="beta-1-1-soon.png" alt="Beta 1.1 soon"></button><div class="news-copy"><span class="news-tag">🚀 COMING SOON</span><h3>Warleon Client Beta 1.1</h3><p>Новая версия уже в разработке. Beta 1.1 — скоро.</p></div></article>
+<article class="news-card"><button class="gallery-open" data-image="new-menu-theme.png"><img src="new-menu-theme.png" alt="New menu theme"></button><div class="news-copy"><span class="news-tag">🎨 NEW THEME</span><h3>Новая тема меню</h3><p>Новый визуальный стиль меню с ярким оформлением и разделом Themes.</p></div></article>
+</div></section>
+<section class="section" id="features">
+<div class="section-heading"><span>01 / FEATURES</span><h2>Возможности<br><em>Warleon Client.</em></h2></div>
+<div class="category-list">
+
+<details class="category" open>
+<summary><span class="category-number">01</span><span>COMBAT</span><i>⌄</i></summary>
+<div class="module-grid">
+<div class="module"><b>AntiBot</b><p>Фильтрация искусственных и некорректных целей.</p></div>
+<div class="module"><b>AttackAura</b><p>Настраиваемая система автоматической атаки и выбора целей.</p></div>
+<div class="module"><b>AutoExplosion</b><p>Автоматизация взаимодействия с взрывными предметами.</p></div>
+<div class="module"><b>AutoTotem</b><p>Автоматическая работа с тотемом бессмертия.</p></div>
+<div class="module"><b>ClickPearl</b><p>Удобное использование жемчуга по заданной клавише.</p></div>
+<div class="module"><b>PearlTarget</b><p>Работа с направлением и целью жемчуга.</p></div>
+<div class="module"><b>PacketCriticals</b><p>Настройка визуальной и сетевой логики критических атак.</p></div>
+<div class="module"><b>TpsSync</b><p>Синхронизация действий с текущим TPS сервера.</p></div>
+<div class="module"><b>AutoSwap</b><p>Быстрое переключение предметов по заданным условиям.</p></div>
+<div class="module"><b>CrystalAura</b><p>Настраиваемая работа с кристаллами и приоритетами.</p></div>
+<div class="module"><b>AimBow</b><p>Настройка наведения при использовании лука.</p></div>
+</div>
+</details>
+
+<details class="category">
+<summary><span class="category-number">02</span><span>MOVEMENT</span><i>⌄</i></summary>
+<div class="module-grid">
+<div class="module"><b>AutoSprint</b><p>Автоматический спринт и удобное управление движением.</p></div>
+<div class="module"><b>ElytraBooster</b><p>Настройка движения во время полёта на элитрах.</p></div>
+<div class="module"><b>ElytraRecast</b><p>Дополнительная автоматизация повторного использования элитр.</p></div>
+<div class="module"><b>GrimGlide</b><p>Настройки воздушного перемещения.</p></div>
+<div class="module"><b>GuiMove</b><p>Управление движением во время открытого интерфейса.</p></div>
+<div class="module"><b>NoSlow</b><p>Настройки поведения движения при использовании предметов.</p></div>
+<div class="module"><b>Speed</b><p>Настройки скорости передвижения.</p></div>
+<div class="module"><b>AirStuck</b><p>Настройки контроля движения в воздухе.</p></div>
+<div class="module"><b>ElytraMotion</b><p>Гибкая настройка воздушной физики.</p></div>
+<div class="module"><b>NoWeb</b><p>Настройки перемещения через паутину.</p></div>
+<div class="module"><b>NoFall</b><p>Настройки поведения при падении.</p></div>
+</div>
+</details>
+
+<details class="category">
+<summary><span class="category-number">03</span><span>RENDER</span><i>⌄</i></summary>
+<div class="module-grid">
+<div class="module"><b>HUD</b><p>FPS, CPS, Ping, координаты, броня и другие элементы интерфейса.</p></div>
+<div class="module"><b>AntiInvis</b><p>Настройки отображения невидимых объектов.</p></div>
+<div class="module"><b>NoRender</b><p>Управление визуальными эффектами и элементами рендера.</p></div>
+<div class="module"><b>Predictions</b><p>Визуальные предсказания игровых событий.</p></div>
+<div class="module"><b>SwingAnimation</b><p>Кастомизация анимации взмаха рукой.</p></div>
+<div class="module"><b>Crosshair</b><p>Настраиваемый прицел.</p></div>
+<div class="module"><b>ViewModel</b><p>Настройка положения предметов и руки.</p></div>
+<div class="module"><b>Ambience</b><p>Изменение атмосферы и визуального окружения.</p></div>
+<div class="module"><b>ShulkerPreview</b><p>Предпросмотр содержимого шалкеров.</p></div>
+<div class="module"><b>FireworkESP</b><p>Визуальное выделение фейерверков.</p></div>
+<div class="module"><b>JumpCircle</b><p>Эффект круга при прыжке.</p></div>
+<div class="module"><b>Cosmetics</b><p>Дополнительные визуальные элементы.</p></div>
+<div class="module"><b>FullBright</b><p>Настройка яркости визуального окружения.</p></div>
+</div>
+</details>
+
+<details class="category">
+<summary><span class="category-number">04</span><span>PLAYER</span><i>⌄</i></summary>
+<div class="module-grid">
+<div class="module"><b>AutoTool</b><p>Автоматический выбор подходящего инструмента.</p></div>
+<div class="module"><b>AutoArmor</b><p>Автоматизация экипировки брони.</p></div>
+<div class="module"><b>Blink</b><p>Настройка визуального эффекта задержки движения.</p></div>
+<div class="module"><b>NoJumpDelay</b><p>Настройка задержки между прыжками.</p></div>
+<div class="module"><b>FastBreak</b><p>Настройки взаимодействия с блоками.</p></div>
+<div class="module"><b>NoPush</b><p>Настройки поведения при столкновениях.</p></div>
+<div class="module"><b>FastUse</b><p>Настройки использования предметов.</p></div>
+<div class="module"><b>LevitationControl</b><p>Настройки контроля движения при левитации.</p></div>
+</div>
+</details>
+<details class="category"><summary><span class="category-number">05</span><span>MISC</span><i>⌄</i></summary><div class="module-grid">
+<div class="module"><b>ServerHelper</b><p>Дополнительные серверные инструменты.</p></div>
+<div class="module"><b>ElytraHelper</b><p>Дополнительные настройки для элитр.</p></div>
+<div class="module"><b>ItemScroller</b><p>Удобное перемещение предметов.</p></div>
+<div class="module"><b>ClickFriend</b><p>Удобное взаимодействие с друзьями.</p></div>
+<div class="module"><b>FreeCam</b><p>Настройки свободной камеры.</p></div>
+<div class="module"><b>NoInteract</b><p>Контроль взаимодействия с объектами.</p></div>
+<div class="module"><b>AutoAccept</b><p>Автоматизация принятия запросов.</p></div>
+<div class="module"><b>AutoRespawn</b><p>Автоматизация повторного появления.</p></div>
+<div class="module"><b>NameProtect</b><p>Настройки отображения имён.</p></div>
+<div class="module"><b>ScoreboardHealth</b><p>Дополнительная информация о здоровье.</p></div>
+<div class="module"><b>CrystalOptimizer</b><p>Оптимизация работы с кристаллами.</p></div>
+<div class="module"><b>FakePlayer</b><p>Визуальный тестовый игрок.</p></div>
+<div class="module"><b>ChatHelper</b><p>Дополнительные инструменты для чата.</p></div>
+</div></details></div>
+</section>
+
+
+<section class="background-settings" id="backgroundSettings">
+  <div class="bg-settings-header">
+    <span class="news-tag">CUSTOM BACKGROUND</span>
+    <h3>Свой фон сайта</h3>
+    <p>Загрузи картинку с компьютера или вставь прямую ссылку на изображение.</p>
+  </div>
+  <div class="bg-url-row">
+    <input id="backgroundUrlInput" type="url" placeholder="https://site.com/background.jpg">
+    <button id="applyBackgroundUrl">Применить ссылку</button>
+    <button id="resetBackground" class="secondary-btn">Сбросить</button>
+  </div>
+  <div class="bg-upload-row">
+    <label class="upload-bg-btn" for="backgroundFileInput">📁 Выбрать изображение</label>
+    <input id="backgroundFileInput" type="file" accept="image/*" hidden>
+    <span id="backgroundFileName">Файл не выбран</span>
+  </div>
+</section>
+
+<section class="section info-section" id="about">
+<div class="section-heading"><span>02 / ABOUT</span><h2>Warleon — это<br><em>больше, чем интерфейс.</em></h2></div>
+<div class="info-grid">
+<article class="info-card"><div class="info-icon">🛍</div><h3>Абсолютно бесплатно</h3><p>Клиент доступен бесплатно.</p></article>
+<article class="info-card"><div class="info-icon">🌐</div><h3>Поддержка</h3><p>По всем вопросам обращайтесь к <a href="https://t.me/scotmodel" target="_blank" rel="noopener">@scotmodel</a>.</p></article>
+<article class="info-card"><div class="info-icon">⏫</div><h3>Поддерживаемые сервера</h3><p>FunTime, Spookytime, Holyworld (Risk), AresMine.</p></article>
+<article class="info-card private-card"><div class="info-icon">‼️</div><h3>Приватная версия</h3><p>За актуальным прайсом обращайтесь в личные сообщения к <a href="https://t.me/scotmodel" target="_blank" rel="noopener">@scotmodel</a>.</p></article>
+</div>
+<div class="admins-block">
+<h3>👑 Администрация Warleon</h3>
+<p><a href="https://t.me/scotmodel" target="_blank" rel="noopener">@scotmodel</a> · <a href="https://t.me/nottodaysorry22" target="_blank" rel="noopener">@nottodaysorry22</a> · <a href="https://t.me/Voidmywlk" target="_blank" rel="noopener">@Voidmywlk</a></p>
+</div>
+<div class="beta-warning"><b>⚠ BETA 1.0</b><span>Клиент находится на стадии бета-тестирования. Возможны баги, изменения функций и обновления.</span></div>
+</section>
+
+<section class="section faq-section" id="faq">
+<div class="section-heading"><span>03 / FAQ</span><h2>Частые вопросы</h2></div>
+<div class="faq-list">
+<details><summary>Для какой версии Minecraft создан Warleon?</summary><p>Текущая Beta 1.0 рассчитана на Minecraft 1.21.4 Fabric.</p></details>
+<details><summary>Клиент бесплатный?</summary><p>Да, текущая Beta-версия клиента распространяется бесплатно.</p></details>
+<details><summary>Как связаться с администратором?</summary><p><a href="https://t.me/scotmodel" target="_blank" rel="noopener">@scotmodel</a> — нажми на username, чтобы открыть Telegram.</p></details>
+<details><summary>Это финальная версия?</summary><p>Нет. Это Beta 1.0. В дальнейшем функции и оформление могут изменяться.</p></details>
+</div>
+</section>
+</main>
+<footer><span>© 2026 WARLEON CLIENT • BETA 1.0</span><span>MINECRAFT 1.21.4 • FABRIC</span></footer>
+</div>
+
+<div class="theme-panel" id="themePanel">
+<div class="panel-title">Выбери тему <button id="closeThemes">×</button></div>
+<div class="theme-grid">
+<button data-theme="violet"><i></i>Violet</button><button data-theme="orange"><i></i>Orange</button>
+<button data-theme="blue"><i></i>Ocean</button><button data-theme="green"><i></i>Emerald</button>
+<button data-theme="red"><i></i>Crimson</button><button data-theme="pink"><i></i>Neon</button>
+</div>
+</div>
+
+<div class="modal" id="downloadModal">
+<div class="modal-box download-box"><button class="modal-close" data-close="downloadModal">×</button>
+<div class="download-icon">↓</div><h2>Скачать Warleon Beta 1.0</h2>
+<p>Warleon-Beta 1.0.jar • Minecraft 1.21.4 Fabric</p>
+<a class="primary-button download-link" href="Warleon-Beta 1.0.jar" download>Скачать .JAR <span>↓</span></a>
+<small class="hint">Beta 1.0. Возможны баги и изменения.</small>
+</div></div>
+
+<div class="image-viewer" id="imageViewer"><button class="viewer-close" id="viewerClose">×</button><img id="viewerImage" src="" alt="Warleon screenshot"></div><script src="script.js"></script>
+</body>
+</html>
+<section class="admin-panel" id="adminPanel">
+  <h2>👑 Админ-панель</h2>
+  <p>Администраторы сайта:</p>
+  <div class="admin-list">
+    <a href="https://t.me/scotmodel" target="_blank">@scotmodel</a>
+    <a href="https://t.me/nottodaysorry22" target="_blank">@nottodaysorry22</a>
+    <a href="https://t.me/Voidmywlk" target="_blank">@Voidmywlk</a>
+  </div>
+</section>
